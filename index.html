@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deniz Altunay</title>
+    
+    <meta name="description" content="Deniz Altunay'ın kişisel portfolyosu. Veri bilimi, veri analitiği ve web geliştirme odaklı güncel projeleri, teknik yetkinlikleri ve iletişim bilgileri.">
+    <meta name="keywords" content="Deniz, Altunay, Deniz Altunay, denizaltny, veri bilimi, veri analitiği, python geliştirici, freelance, full-stack developer">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="apple-touch-icon" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particles" id="particles"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" data-navbar>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="avatar.jpg" alt="Deniz Altunay Avatar Logo" class="nav-avatar">
+                <span class="brand-text">Deniz Altunay</span>
+            </div>
+            <!-- TAMAMEN TÜRKÇE ÜST MENÜ -->
+            <ul class="nav-menu" data-nav-menu>
+                <li class="nav-item">
+                    <a href="#home" class="nav-link" data-nav-link>
+                        <span>01.</span>Anasayfa
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-nav-link>
+                        <span>02.</span>Hakkımda
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#work" class="nav-link" data-nav-link>
+                        <span>03.</span>Projelerim
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-nav-link>
+                        <span>04.</span>İletişim
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="hamburger" data-hamburger>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-intro">
+                    <span class="intro-text">Merhaba, benim adım</span>
+                </div>
+                <!-- SEO İçin Sayfadaki Tek H1 Başlığı -->
+                <h1 class="hero-title">
+                    Deniz Altunay.                    <span class="hero-subtitle"></span>
+                </h1>
+                <p class="hero-description">
+                 İstanbul Topkapı Üniversitesi Veri Bilimi Ve Analitiği öğrencisi olarak, makine öğrenmesi ve yapay zeka alanlarında yenilikçi projeler geliştiriyor; verileri dünyayı daha anlamlı ve optimize bir yer haline getirmek için işliyorum.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>İletişime Geç</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#work" class="btn btn-secondary">
+                        <span>Projelerim</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <div class="profile-glow"></div>
+                        <img src="profil.jpg" alt="Deniz Altunay Profil Fotoğrafı" class="profile-photo">
+                    </div>
+                    <div class="profile-badges">
+                        <div class="badge">
+                            <i class="fas fa-code"></i>
+                            <span>Full-Stack Developer</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Data Analyst</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Keşfetmek için kaydır</div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <!-- SEO Uyumlu H2 Başlığı -->
+            <div class="section-header">
+                <span class="section-number">01.</span>
+                <h2 class="section-title">Hakkımda</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        Merhaba! Ben Deniz. İstanbul Topkapı Üniversitesi Veri Bilimi ve Analitiği bölümünde sürdürdüğüm akademik altyapıyı, freelance web ve yazılım geliştirme projelerindeki pratik deneyimimle birleştiren bir yazılım geliştiriciyim.
+                    </p>
+                    <p class="about-description">
+                        Python, SQL yardımıyla modern web teknolojileri üzerinde uzmanlaşarak; veriye dayalı analitik çözümler, web uygulamaları AWS ve arama motoru optimizasyonu (SEO) süreçleri yönetiyorum. Teknik yetkinliklerimi pratik mühendislik becerileriyle destekleyerek işlevsel ve ölçeklenebilir dijital çözümler sunmaya odaklanıyorum.
+                    </p>
+                    <p class="about-current">
+                        Son dönemde, özellikle yapay zeka entegrasyonlu <span class="highlight">SaaS uygulamalarının mimarisi</span>, 
+                        uçtan uca geliştirilmesi ve <span class="highlight">canlıya alınması</span> süreçlerinde aktif rol aldım. Geliştirdiğim özel yapay zeka analitik yazılımları ile işletmelerin veri analiz ve dijital dönüşüm süreçlerini optimize etmeye devam ediyorum.
+                    </p>
+                    <div class="tech-stack">
+                        <h3>Kullandığım teknolojiler:</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>R</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-brain"></i>
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Pandas</span>
+                            </div>
+                            <div class="tech-item">
+                                <i class="fas fa-robot"></i>
+                                <span>Scikit-learn</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="image-glow"></div>
+                        <div class="image-placeholder">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work" style="padding-top: 60px;">
+        <div class="container">
+            <!-- SEO Uyumlu H2 Başlığı -->
+            <div class="section-header">
+                <span class="section-number">02.</span>
+                <h2 class="section-title">Projelerim</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="work-grid">
+                <!-- Proje 1 -->
+                <div class="work-item">
+                    <div class="work-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Web & Yazılım Geliştirme</span>
+                        <!-- Alt Başlık H3 Yapıldı -->
+                        <h3 class="work-title">Ölçeklenebilir Web Uygulamaları & SEO Optimizasyonu</h3>
+                        <p class="work-description">
+                            Modern web teknolojileri ve içerik yönetim sistemlerini kullanarak uçtan uca web platformları geliştirdim. Web sitelerinin arama motorlarında üst sıralarda yer alması için teknik SEO altyapılarını kurarak, performans, site haritaları ve hız optimizasyonu süreçlerini yönettim.
+                        </p>
+                        <div class="tech-stack-small">
+                            <span>Web Geliştirme</span>
+                            <span>SEO Altyapısı</span>
+                            <span>Performans Optimizasyonu</span>
+                            <span>Site Mimarisi</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="#" class="work-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="work-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proje 2 -->
+                <div class="work-item">
+                    <div class="work-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <span class="work-category">Yazılım Mühendisliği & Veri Analitiği</span>
+                        <!-- Alt Başlık H3 Yapıldı -->
+                        <h3 class="work-title">Yapay Zeka Destekli Analitik SaaS Platformu</h3>
+                        <p class="work-description">
+                            İşletmelerin karmaşık veri analiz süreçlerini otomatize etmek amacıyla yapay zeka entegrasyonlu bir analitik SaaS yazılımı tasarladım. Python ve SQL tabanlı veri katmanına sahip olan bu yazılımın sistem mimarisini kurup, uçtan uca geliştirerek canlıya (üretim ortamına) alma süreçlerini başarıyla tamamladım.
+                        </p>
+                        <div class="tech-stack-small">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>SaaS Mimarisi</span>
+                            <span>Yapay Zeka Entegrasyonu</span>
+                        </div>
+                        <div class="work-links">
+                            <a href="#" class="work-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="work-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <!-- SEO Uyumlu H2 Başlığı -->
+            <div class="section-header">
+                <span class="section-number">03.</span>
+                <h2 class="section-title">İletişim</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-intro" style="width: 100%; text-align: center; margin-bottom: 40px;">
+                    <!-- Alt Başlık H3 Yapıldı -->
+                    <h3 class="contact-title" style="font-size: 2rem;">Yeni Projeler İçin Bağlantıda Kalalım</h3>
+                    <p class="contact-description" style="max-width: 600px; margin: 0 auto;">
+                        Freelance yazılım geliştirme, veri analitiği projeleri veya iş birliği talepleriniz için bana aşağıdaki kanallardan doğrudan ulaşabilirsiniz.
+                    </p>
+                </div>
+                
+                <!-- İletişim Butonları -->
+                <div class="contact-form-container" style="width: 100%; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                    <a href="mailto:altnydeniz@gmail.com" class="btn btn-primary" style="width: 100%; max-width: 400px; justify-content: center; padding: 18px;">
+                        <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                        <span>E-posta Gönder</span>
+                    </a>
+                    
+                    <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; max-width: 400px; justify-content: center; padding: 18px; border: 1px solid var(--primary-color, #64ffda);">
+                        <i class="fab fa-github" style="margin-right: 10px;"></i>
+                        <span>GitHub Profili</span>
+                    </a>
+                </div>
+
+                <!-- Küçük İkonlar -->
+                <div class="contact-info" style="width: 100%; display: flex; justify-content: center; gap: 40px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>İstanbul, Türkiye</span>
+                    </div>
+                    <div class="social-links" style="margin: 0;">
+                        <a href="https://linkedin.com/in/deniz-altunay-424666388/" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://instagram.com/denizaltny" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>Tasarlayan ve Geliştiren Deniz Altunay</p>
+                    <p>© 2026. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home" class="footer-link">Başa Dön</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
