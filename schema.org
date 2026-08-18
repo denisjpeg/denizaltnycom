@@ -1,0 +1,10 @@
+Name: Deniz Altunay
+URL: https://denizaltny.com
+Job title: Data Science & Software Developer
+Address: İstanbul, Türkiye
+Alumni/affiliation: İstanbul Topkapı Üniversitesi
+SameAs:
+  LinkedIn
+  GitHub
+  Instagram
+  YouTube
