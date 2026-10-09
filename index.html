@@ -1,327 +1,882 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deniz Altunay</title>
+    <title>Deniz Altunay | Veri Bilimi, Yapay Zeka & Yazılım Mühendisliği</title>
     
-    <meta name="description" content="Deniz Altunay'ın kişisel portfolyosu. Veri bilimi, veri analitiği ve web geliştirme odaklı güncel projeleri, teknik yetkinlikleri ve iletişim bilgileri.">
-    <meta name="keywords" content="Deniz, Altunay, Deniz Altunay, denizaltny, veri bilimi, veri analitiği, python geliştirici, freelance, full-stack developer">
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Deniz Altunay kişisel portfolyosu. İstanbul Topkapı Üniversitesi Veri Bilimi ve Analitiği; yapay zeka, makine öğrenmesi, SaaS mimarileri, veri analitiği ve yüksek performanslı web çözümleri.">
+    <meta name="keywords" content="Deniz Altunay, denizaltny, veri bilimi, veri analitiği, yapay zeka, makine öğrenmesi, python, SQL, full-stack, SaaS mimarisi, teknik SEO, İstanbul">
+    <meta name="author" content="Deniz Altunay">
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+    <link rel="canonical" href="https://denizaltny.com/">
+    
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Deniz Altunay | Veri Bilimi & Yazılım Mühendisliği">
+    <meta property="og:description" content="İstanbul Topkapı Üniversitesi Veri Bilimi ve Analitiği. Makine öğrenmesi, analitik SaaS sistemleri ve modern web mimarileri.">
+    <meta property="og:url" content="https://denizaltny.com/">
+    <meta property="og:image" content="https://denizaltny.com/profil.jpg">
+    <meta property="og:site_name" content="Deniz Altunay Portfolyo">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deniz Altunay | Portfolyo">
+    <meta name="twitter:description" content="Veri Bilimi, Yapay Zeka, SaaS Mimarisi ve Yazılım Mühendisliği.">
+    <meta name="twitter:image" content="https://denizaltny.com/profil.jpg">
 
+    <!-- Favicon & Icons -->
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <link rel="apple-touch-icon" href="favicon.jpg">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Deniz Altunay",
+      "url": "https://denizaltny.com",
+      "image": "https://denizaltny.com/profil.jpg",
+      "jobTitle": "Data Scientist & Software Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "İstanbul Topkapı Üniversitesi"
+      },
+      "sameAs": [
+        "https://github.com/denisjpeg",
+        "https://linkedin.com/in/deniz-altunay-424666388/",
+        "https://instagram.com/denizaltny"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="particles" id="particles"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-        </div>
-    </div>
+    <!-- Ambient Canvas & Matrix Overlay -->
+    <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+    <canvas id="matrix-canvas" class="matrix-canvas" aria-hidden="true"></canvas>
+    <div id="matrix-exit-hint" class="matrix-exit-hint">Matrix Modundan Çıkmak İçin Ekrana Tıklayın veya ESC'ye Basın</div>
 
-    <!-- Navigation -->
-    <nav class="navbar" data-navbar>
-        <div class="nav-container">
-            <div class="nav-brand">
-                <img src="avatar.jpg" alt="Deniz Altunay Avatar Logo" class="nav-avatar">
-                <span class="brand-text">Deniz Altunay</span>
-            </div>
-            <!-- TAMAMEN TÜRKÇE ÜST MENÜ -->
-            <ul class="nav-menu" data-nav-menu>
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-nav-link>
-                        <span>01.</span>Anasayfa
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-nav-link>
-                        <span>02.</span>Hakkımda
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#work" class="nav-link" data-nav-link>
-                        <span>03.</span>Projelerim
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-nav-link>
-                        <span>04.</span>İletişim
-                    </a>
-                </li>
-            </ul>
-            <div class="nav-actions">
-                <button class="hamburger" data-hamburger>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Kurumsal Header & Navigation -->
+    <header class="site-header" id="site-header">
+        <div class="header-container">
+            <a href="#home" class="brand-link" aria-label="Deniz Altunay Ana Sayfa">
+                <div class="brand-logo-wrap">
+                    <img src="avatar.jpg" alt="Deniz Tech Logo" class="brand-logo-img">
+                    <span class="status-indicator-dot" title="Aktif ve Görüşmeye Açık"></span>
+                </div>
+                <div class="brand-info">
+                    <span class="brand-title">Deniz Altunay</span>
+                    <span class="brand-badge">Data Science & Engineering</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menü -->
+            <nav class="desktop-nav" aria-label="Ana Menü">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-anchor active"><span class="nav-idx">01.</span>Profil</a></li>
+                    <li><a href="#skills" class="nav-anchor"><span class="nav-idx">02.</span>Yetkinlikler</a></li>
+                    <li><a href="#work" class="nav-anchor"><span class="nav-idx">03.</span>Projeler</a></li>
+                    <li><a href="#playground" class="nav-anchor"><span class="nav-idx">04.</span>Laboratuvar</a></li>
+                    <li><a href="#contact" class="nav-anchor"><span class="nav-idx">05.</span>İletişim</a></li>
+                </ul>
+            </nav>
+
+            <!-- Aksiyonlar: Tema Değiştirici & İletişim & Mobil Menü -->
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Tema Değiştir" title="Açık/Karanlık Tema">
+                    <i class="fas fa-sun light-icon"></i>
+                    <i class="fas fa-moon dark-icon"></i>
+                </button>
+                
+                <a href="#contact" class="btn btn-sm btn-corporate hide-on-mobile">
+                    <span>İletişim</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <button type="button" class="hamburger-btn" id="hamburger-btn" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
                 </button>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-intro">
-                    <span class="intro-text">Merhaba, benim adım</span>
-                </div>
-                <!-- SEO İçin Sayfadaki Tek H1 Başlığı -->
-                <h1 class="hero-title">
-                    Deniz Altunay.                    <span class="hero-subtitle"></span>
-                </h1>
-                <p class="hero-description">
-                 İstanbul Topkapı Üniversitesi Veri Bilimi Ve Analitiği öğrencisi olarak, makine öğrenmesi ve yapay zeka alanlarında yenilikçi projeler geliştiriyor; verileri dünyayı daha anlamlı ve optimize bir yer haline getirmek için işliyorum.
-                </p>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>İletişime Geç</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#work" class="btn btn-secondary">
-                        <span>Projelerim</span>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="profile-container">
-                    <div class="profile-image">
-                        <div class="profile-glow"></div>
-                        <img src="profil.jpg" alt="Deniz Altunay Profil Fotoğrafı" class="profile-photo">
-                    </div>
-                    <div class="profile-badges">
-                        <div class="badge">
-                            <i class="fas fa-code"></i>
-                            <span>Full-Stack Developer</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-chart-pie"></i>
-                            <span>Data Analyst</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-text">Keşfetmek için kaydır</div>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <!-- SEO Uyumlu H2 Başlığı -->
-            <div class="section-header">
-                <span class="section-number">01.</span>
-                <h2 class="section-title">Hakkımda</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        Merhaba! Ben Deniz. İstanbul Topkapı Üniversitesi Veri Bilimi ve Analitiği bölümünde sürdürdüğüm akademik altyapıyı, freelance web ve yazılım geliştirme projelerindeki pratik deneyimimle birleştiren bir yazılım geliştiriciyim.
-                    </p>
-                    <p class="about-description">
-                        Python, SQL yardımıyla modern web teknolojileri üzerinde uzmanlaşarak; veriye dayalı analitik çözümler, web uygulamaları AWS ve arama motoru optimizasyonu (SEO) süreçleri yönetiyorum. Teknik yetkinliklerimi pratik mühendislik becerileriyle destekleyerek işlevsel ve ölçeklenebilir dijital çözümler sunmaya odaklanıyorum.
-                    </p>
-                    <p class="about-current">
-                        Son dönemde, özellikle yapay zeka entegrasyonlu <span class="highlight">SaaS uygulamalarının mimarisi</span>, 
-                        uçtan uca geliştirilmesi ve <span class="highlight">canlıya alınması</span> süreçlerinde aktif rol aldım. Geliştirdiğim özel yapay zeka analitik yazılımları ile işletmelerin veri analiz ve dijital dönüşüm süreçlerini optimize etmeye devam ediyorum.
-                    </p>
-                    <div class="tech-stack">
-                        <h3>Kullandığım teknolojiler:</h3>
-                        <div class="tech-grid">
-                            <div class="tech-item">
-                                <i class="fab fa-python"></i>
-                                <span>Python</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-database"></i>
-                                <span>SQL</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>R</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-brain"></i>
-                                <span>TensorFlow</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Pandas</span>
-                            </div>
-                            <div class="tech-item">
-                                <i class="fas fa-robot"></i>
-                                <span>Scikit-learn</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-container">
-                        <div class="image-glow"></div>
-                        <div class="image-placeholder">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="work" style="padding-top: 60px;">
-        <div class="container">
-            <!-- SEO Uyumlu H2 Başlığı -->
-            <div class="section-header">
-                <span class="section-number">02.</span>
-                <h2 class="section-title">Projelerim</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="work-grid">
-                <!-- Proje 1 -->
-                <div class="work-item">
-                    <div class="work-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                    </div>
-                    <div class="work-content">
-                        <span class="work-category">Web & Yazılım Geliştirme</span>
-                        <!-- Alt Başlık H3 Yapıldı -->
-                        <h3 class="work-title">Ölçeklenebilir Web Uygulamaları & SEO Optimizasyonu</h3>
-                        <p class="work-description">
-                            Modern web teknolojileri ve içerik yönetim sistemlerini kullanarak uçtan uca web platformları geliştirdim. Web sitelerinin arama motorlarında üst sıralarda yer alması için teknik SEO altyapılarını kurarak, performans, site haritaları ve hız optimizasyonu süreçlerini yönettim.
-                        </p>
-                        <div class="tech-stack-small">
-                            <span>Web Geliştirme</span>
-                            <span>SEO Altyapısı</span>
-                            <span>Performans Optimizasyonu</span>
-                            <span>Site Mimarisi</span>
-                        </div>
-                        <div class="work-links">
-                            <a href="#" class="work-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="work-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Proje 2 -->
-                <div class="work-item">
-                    <div class="work-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-server"></i>
-                        </div>
-                    </div>
-                    <div class="work-content">
-                        <span class="work-category">Yazılım Mühendisliği & Veri Analitiği</span>
-                        <!-- Alt Başlık H3 Yapıldı -->
-                        <h3 class="work-title">Yapay Zeka Destekli Analitik SaaS Platformu</h3>
-                        <p class="work-description">
-                            İşletmelerin karmaşık veri analiz süreçlerini otomatize etmek amacıyla yapay zeka entegrasyonlu bir analitik SaaS yazılımı tasarladım. Python ve SQL tabanlı veri katmanına sahip olan bu yazılımın sistem mimarisini kurup, uçtan uca geliştirerek canlıya (üretim ortamına) alma süreçlerini başarıyla tamamladım.
-                        </p>
-                        <div class="tech-stack-small">
-                            <span>Python</span>
-                            <span>SQL</span>
-                            <span>SaaS Mimarisi</span>
-                            <span>Yapay Zeka Entegrasyonu</span>
-                        </div>
-                        <div class="work-links">
-                            <a href="#" class="work-link">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="work-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <!-- SEO Uyumlu H2 Başlığı -->
-            <div class="section-header">
-                <span class="section-number">03.</span>
-                <h2 class="section-title">İletişim</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-intro" style="width: 100%; text-align: center; margin-bottom: 40px;">
-                    <!-- Alt Başlık H3 Yapıldı -->
-                    <h3 class="contact-title" style="font-size: 2rem;">Yeni Projeler İçin Bağlantıda Kalalım</h3>
-                    <p class="contact-description" style="max-width: 600px; margin: 0 auto;">
-                        Freelance yazılım geliştirme, veri analitiği projeleri veya iş birliği talepleriniz için bana aşağıdaki kanallardan doğrudan ulaşabilirsiniz.
-                    </p>
-                </div>
-                
-                <!-- İletişim Butonları -->
-                <div class="contact-form-container" style="width: 100%; display: flex; flex-direction: column; gap: 20px; align-items: center;">
-                    <a href="mailto:altnydeniz@gmail.com" class="btn btn-primary" style="width: 100%; max-width: 400px; justify-content: center; padding: 18px;">
-                        <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+        <!-- Mobil Menü Çekmecesi -->
+        <div class="mobile-drawer" id="mobile-drawer">
+            <div class="mobile-drawer-inner">
+                <ul class="mobile-nav-list">
+                    <li><a href="#home" class="mobile-nav-link"><span class="nav-idx">01.</span>Profil & Hakkımda</a></li>
+                    <li><a href="#skills" class="mobile-nav-link"><span class="nav-idx">02.</span>Teknik Yetkinlikler</a></li>
+                    <li><a href="#work" class="mobile-nav-link"><span class="nav-idx">03.</span>Projeler</a></li>
+                    <li><a href="#playground" class="mobile-nav-link"><span class="nav-idx">04.</span>İnteraktif Laboratuvar</a></li>
+                    <li><a href="#contact" class="mobile-nav-link"><span class="nav-idx">05.</span>İletişim Bilgileri</a></li>
+                </ul>
+                <div class="mobile-drawer-footer">
+                    <a href="mailto:altnydeniz@gmail.com" class="btn btn-primary full-width">
+                        <i class="fas fa-envelope"></i>
                         <span>E-posta Gönder</span>
                     </a>
-                    
-                    <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%; max-width: 400px; justify-content: center; padding: 18px; border: 1px solid var(--primary-color, #64ffda);">
-                        <i class="fab fa-github" style="margin-right: 10px;"></i>
-                        <span>GitHub Profili</span>
-                    </a>
-                </div>
-
-                <!-- Küçük İkonlar -->
-                <div class="contact-info" style="width: 100%; display: flex; justify-content: center; gap: 40px; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>İstanbul, Türkiye</span>
-                    </div>
-                    <div class="social-links" style="margin: 0;">
-                        <a href="https://linkedin.com/in/deniz-altunay-424666388/" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://instagram.com/denizaltny" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                    <div class="mobile-socials">
+                        <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/deniz-altunay-424666388/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/denizaltny" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>Tasarlayan ve Geliştiren Deniz Altunay</p>
-                    <p>© 2026. Tüm hakları saklıdır.</p>
+    <main id="main-content">
+        <!-- ==============================================
+             HERO & PROFİL BÖLÜMÜ
+             (Sitedeki tek profil fotoğrafı dik ve orantılı,
+             yanında metin içeriği akıcı olarak devam ediyor)
+             ============================================== -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-layout">
+                    <!-- Fotoğraf Kolonu (Sitedeki TEK Profil Fotoğrafı) -->
+                    <div class="hero-photo-col">
+                        <div class="photo-card-wrap">
+                            <div class="photo-glow-effect" aria-hidden="true"></div>
+                            <div class="photo-card" id="profile-card">
+                                <img src="profil.jpg" 
+                                     alt="Deniz Altunay - Portfolyo Profil Fotoğrafı" 
+                                     class="hero-profile-img"
+                                     width="1050" 
+                                     height="1400"
+                                     fetchpriority="high"
+                                     decoding="async">
+                                
+                                <div class="photo-badge-top">
+                                    <span class="live-dot"></span>
+                                    <span>İş Birliklerine Açık</span>
+                                </div>
+
+                                <div class="photo-overlay-glass">
+                                    <div class="photo-meta">
+                                        <span class="meta-name">Deniz Altunay</span>
+                                        <span class="meta-tag">Veri Bilimi & Mühendislik</span>
+                                    </div>
+                                    <span class="meta-loc"><i class="fas fa-location-dot"></i> İstanbul</span>
+                                </div>
+                            </div>
+
+                            <!-- Bilgi Rozetleri -->
+                            <div class="hero-chips">
+                                <div class="hero-chip">
+                                    <i class="fas fa-university"></i>
+                                    <span>İstanbul Topkapı Üniversitesi</span>
+                                </div>
+                                <div class="hero-chip">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Veri Bilimi ve Analitiği</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yanında Devam Eden Metin İçeriği Kolonu -->
+                    <div class="hero-text-col">
+                        <div class="hero-eyebrow">
+                            <span class="eyebrow-pill">
+                                <i class="fas fa-chart-line"></i> Veri Bilimi & Kurumsal Çözümler
+                            </span>
+                        </div>
+
+                        <!-- Tek H1 Başlığı -->
+                        <h1 class="hero-main-title">
+                            Deniz <span class="gradient-text">Altunay</span>
+                        </h1>
+
+                        <!-- Dinamik Rol / Alt Başlık -->
+                        <div class="hero-roles">
+                            <span class="role-static">Uzmanlık:</span>
+                            <span class="role-dynamic" id="role-typewriter">Veri Bilimi ve Analitiği</span>
+                            <span class="cursor-blink">|</span>
+                        </div>
+
+                        <!-- Akıcı ve Zengin Kurumsal Biyografi Metni -->
+                        <div class="hero-narrative">
+                            <p class="lead-text">
+                                <strong>İstanbul Topkapı Üniversitesi Veri Bilimi ve Analitiği</strong> bölümünde sürdürdüğüm güçlü akademik altyapıyı, modern yazılım mühendisliği ve yapay zeka alanlarındaki pratik üretim deneyimimle birleştiren bir geliştiriciyim.
+                            </p>
+                            <p class="body-text">
+                                Verileri dünyayı daha anlamlı, öngörülebilir ve optimize bir yer haline getirmek amacıyla işliyor; 
+                                <strong>Python, SQL ve modern web teknolojileri</strong> ekseninde veriye dayalı analitik çözümler, 
+                                ölçeklenebilir SaaS mimarileri ve yüksek performanslı kurumsal sistemler üretiyorum.
+                            </p>
+                            <p class="highlight-text">
+                                Özellikle <strong>yapay zeka entegrasyonlu SaaS uygulamalarının</strong> mimarisini tasarlayarak, 
+                                veri modellemesinden canlı üretim ortamına (production) kadar olan tüm mühendislik ve 
+                                <strong>teknik SEO optimizasyonu</strong> süreçlerini uçtan uca titizlikle yönetiyorum.
+                            </p>
+                        </div>
+
+                        <!-- Metrik Sayaçları -->
+                        <div class="hero-stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number"><span data-counter="3">3</span><span>+</span></div>
+                                <div class="stat-label">Yıl Kodlama & Veri Deneyimi</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number"><span data-counter="15">15</span><span>+</span></div>
+                                <div class="stat-label">Geliştirilen Proje & Analiz</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number"><span data-counter="99">99</span><span>%</span></div>
+                                <div class="stat-label">SEO & Performans Skoru</div>
+                            </div>
+                        </div>
+
+                        <!-- Aksiyon Butonları -->
+                        <div class="hero-actions-group">
+                            <a href="#work" class="btn btn-primary">
+                                <span>Projeleri İncele</span>
+                                <i class="fas fa-layer-group"></i>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary">
+                                <span>İletişime Geç</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                            <button type="button" class="btn btn-ghost" id="copy-email-btn" data-email="altnydeniz@gmail.com" title="E-postayı Kopyala">
+                                <i class="far fa-copy"></i>
+                                <span>E-postayı Kopyala</span>
+                            </button>
+                        </div>
+
+                        <!-- Sosyal ve Profesyonel Ağ Bağlantıları -->
+                        <div class="hero-social-links">
+                            <span class="social-label">Bağlantılar:</span>
+                            <a href="https://linkedin.com/in/deniz-altunay-424666388/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profili" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profili" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://instagram.com/denizaltny" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram Profili" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="mailto:altnydeniz@gmail.com" class="social-icon-btn" aria-label="E-posta Gönder" title="E-posta">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="#home" class="footer-link">Başa Dön</a>
+            </div>
+            
+            <div class="scroll-down-hint">
+                <a href="#skills" aria-label="Aşağı Kaydır">
+                    <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+                    <span class="scroll-text">Keşfetmek için kaydır</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             YETKİNLİKLER (SKILLS)
+             ============================================== -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-subtitle">Uzmanlık Alanlarım</span>
+                    <h2 class="section-heading"><span class="heading-num">02.</span> Teknik Yetkinlikler & Araçlar</h2>
+                    <div class="heading-bar"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Kart 1: Veri Bilimi & Makine Öğrenmesi -->
+                    <div class="skill-category-card">
+                        <div class="card-icon-header">
+                            <div class="skill-icon-bubble"><i class="fas fa-brain"></i></div>
+                            <span class="card-tag">Ana Uzmanlık</span>
+                        </div>
+                        <h3 class="skill-category-title">Veri Bilimi & Yapay Zeka</h3>
+                        <p class="skill-category-desc">
+                            Büyük veri setlerini işleme, istatistiksel analizler, tahminleme modelleri ve makine öğrenmesi algoritmaları geliştirme.
+                        </p>
+                        <ul class="skill-items-list">
+                            <li><i class="fab fa-python skill-item-icon"></i> <span>Python (Pandas, NumPy, Scikit-learn)</span></li>
+                            <li><i class="fas fa-robot skill-item-icon"></i> <span>Yapay Zeka & Tahminleme Modelleri</span></li>
+                            <li><i class="fas fa-network-wired skill-item-icon"></i> <span>TensorFlow ile Derin Öğrenme</span></li>
+                            <li><i class="fas fa-chart-line skill-item-icon"></i> <span>R Programlama & İstatistiksel Analiz</span></li>
+                            <li><i class="fas fa-chart-pie skill-item-icon"></i> <span>Veri Görselleştirme & Raporlama</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Kart 2: Veritabanı & SaaS Sistemleri -->
+                    <div class="skill-category-card">
+                        <div class="card-icon-header">
+                            <div class="skill-icon-bubble"><i class="fas fa-database"></i></div>
+                            <span class="card-tag">Sistem & Mimari</span>
+                        </div>
+                        <h3 class="skill-category-title">Yazılım & Veritabanı Mimarisi</h3>
+                        <p class="skill-category-desc">
+                            Yüksek performanslı ilişkisel veritabanı yönetimi, karmaşık SQL optimizasyonları ve ölçeklenebilir SaaS omurgaları.
+                        </p>
+                        <ul class="skill-items-list">
+                            <li><i class="fas fa-table skill-item-icon"></i> <span>İlişkisel Veritabanları (SQL & PostgreSQL)</span></li>
+                            <li><i class="fas fa-cloud skill-item-icon"></i> <span>SaaS Mimarisi & Backend Sistem Tasarımı</span></li>
+                            <li><i class="fas fa-code-branch skill-item-icon"></i> <span>RESTful API Entegrasyonları</span></li>
+                            <li><i class="fab fa-git-alt skill-item-icon"></i> <span>Git & Profesyonel Sürüm Yönetimi</span></li>
+                            <li><i class="fas fa-server skill-item-icon"></i> <span>AWS & Bulut Dağıtım Süreçleri</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Kart 3: Modern Web & Teknik SEO -->
+                    <div class="skill-category-card">
+                        <div class="card-icon-header">
+                            <div class="skill-icon-bubble"><i class="fas fa-laptop-code"></i></div>
+                            <span class="card-tag">Frontend & Optimizasyon</span>
+                        </div>
+                        <h3 class="skill-category-title">Modern Web & Teknik SEO</h3>
+                        <p class="skill-category-desc">
+                            Milisaniyeler içinde yüklenen, arama motorlarında üst sıralarda yer alan, tam responsive kurumsal arayüzler.
+                        </p>
+                        <ul class="skill-items-list">
+                            <li><i class="fab fa-js skill-item-icon"></i> <span>Modern JavaScript (ES6+ & Modüler Mimari)</span></li>
+                            <li><i class="fab fa-html5 skill-item-icon"></i> <span>Semantik HTML5 & CSS3 Mimarisi</span></li>
+                            <li><i class="fas fa-bolt skill-item-icon"></i> <span>Core Web Vitals & Hız Optimizasyonu</span></li>
+                            <li><i class="fas fa-search skill-item-icon"></i> <span>Teknik SEO & Yapılandırılmış Veri</span></li>
+                            <li><i class="fas fa-mobile-alt skill-item-icon"></i> <span>Kusursuz Mobil ve Çapraz Tarayıcı Uyumu</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Kurumsal Teknoloji Şeridi -->
+                <div class="tech-marquee-container" aria-hidden="true">
+                    <div class="tech-marquee-track">
+                        <span class="marquee-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="marquee-tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="marquee-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                        <span class="marquee-tag"><i class="fas fa-robot"></i> TensorFlow</span>
+                        <span class="marquee-tag"><i class="fas fa-chart-bar"></i> Pandas</span>
+                        <span class="marquee-tag"><i class="fas fa-cube"></i> SaaS Architecture</span>
+                        <span class="marquee-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="marquee-tag"><i class="fas fa-search-plus"></i> Technical SEO</span>
+                        <span class="marquee-tag"><i class="fab fa-aws"></i> AWS Cloud</span>
+                        <span class="marquee-tag"><i class="fas fa-chart-line"></i> Data Analytics</span>
+                        <!-- Sonsuz döngü için tekrar -->
+                        <span class="marquee-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="marquee-tag"><i class="fas fa-database"></i> SQL</span>
+                        <span class="marquee-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                        <span class="marquee-tag"><i class="fas fa-robot"></i> TensorFlow</span>
+                        <span class="marquee-tag"><i class="fas fa-chart-bar"></i> Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             PROJELER (PROJECTS)
+             (Doğrudan GitHub linki yok, sadece zengin ve
+             detaylı kurumsal proje metinleri yer alır)
+             ============================================== -->
+        <section id="work" class="work-section">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-subtitle">Üretim & Mühendislik</span>
+                    <h2 class="section-heading"><span class="heading-num">03.</span> Geliştirilen Projeler</h2>
+                    <p class="section-lead-desc">
+                        Veri bilimi ve modern yazılım mühendisliği prensipleriyle hayata geçirilmiş, ölçeklenebilir ve kurumsal seviyedeki sistem mimarileri.
+                    </p>
+                    <div class="heading-bar"></div>
+                </div>
+
+                <div class="projects-container">
+                    <!-- Proje 1: AI Analitik SaaS Platformu -->
+                    <article class="project-card featured-project">
+                        <div class="project-content">
+                            <div class="project-meta-top">
+                                <span class="project-category">Yapay Zeka & SaaS Mimarisi</span>
+                                <span class="project-status-badge">Canlı / Üretim Ortamı</span>
+                            </div>
+                            <h3 class="project-title">Yapay Zeka Destekli Analitik SaaS Platformu</h3>
+                            <p class="project-description">
+                                İşletmelerin dağınık ve karmaşık veri akışlarını otomatize ederek karar alma süreçlerini hızlandırmak amacıyla tasarlanmış uçtan uca analitik SaaS yazılımıdır. Python ve SQL tabanlı yüksek performanslı veri katmanı üzerinde kurgulanan sistem mimarisi, makine öğrenmesi modelleriyle entegre edilerek üretim (production) ortamına başarıyla taşınmıştır.
+                            </p>
+                            
+                            <div class="project-detail-box">
+                                <h4 class="detail-box-title"><i class="fas fa-microchip"></i> Mimari ve Mühendislik Detayları:</h4>
+                                <ul class="detail-bullet-list">
+                                    <li><strong>Gerçek Zamanlı Veri İşleme (ETL):</strong> Farklı kaynaklardan gelen yapılandırılmamış verilerin temizlenmesi, normalize edilmesi ve optimize SQL şemalarında indekslenmesi.</li>
+                                    <li><strong>Öngörüsel AI Modelleri:</strong> Geçmiş eğilimleri analiz ederek geleceğe yönelik kestirimler üreten Scikit-learn ve Gradient Boosting tabanlı regresyon algoritmaları.</li>
+                                    <li><strong>Kurumsal SaaS Altyapısı:</strong> Çok kiracılı (multi-tenant) sistem mimarisi, güvenli rol tabanlı erişim kontrolü ve yüksek erişilebilirlik.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-tech-pills">
+                                <span>Python</span>
+                                <span>SQL</span>
+                                <span>Makine Öğrenmesi</span>
+                                <span>SaaS Mimarisi</span>
+                                <span>RESTful API</span>
+                                <span>Veri Modelleme</span>
+                            </div>
+                        </div>
+
+                        <div class="project-visual">
+                            <div class="terminal-mockup">
+                                <div class="mockup-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="mockup-title">analytics_engine.py — Production Core</span>
+                                </div>
+                                <div class="mockup-code">
+<span class="code-comment"># Kurumsal Analitik Motoru Çekirdeği</span>
+<span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
+<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+<span class="code-keyword">from</span> sklearn.ensemble <span class="code-keyword">import</span> GradientBoostingRegressor
+
+<span class="code-keyword">class</span> <span class="code-func">EnterpriseAnalyticsEngine</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(self, tenant_id, model_version=<span class="code-str">"v2.4-stable"</span>):
+        self.tenant_id = tenant_id
+        self.model = GradientBoostingRegressor()
+        self.status = <span class="code-str">"Production / Active"</span>
+    
+    <span class="code-keyword">def</span> <span class="code-func">predict_metrics</span>(self, telemetry_data):
+        <span class="code-comment"># Veri doğrulama ve gerçek zamanlı tahminleme</span>
+        processed = self._clean_stream(telemetry_data)
+        forecast = self.model.predict(processed)
+        <span class="code-keyword">return</span> {<span class="code-str">"confidence"</span>: <span class="code-num">0.965</span>, <span class="code-str">"forecast"</span>: forecast}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proje 2: Ölçeklenebilir Web & SEO Altyapısı -->
+                    <article class="project-card featured-project reverse-card">
+                        <div class="project-content">
+                            <div class="project-meta-top">
+                                <span class="project-category">Full-Stack & Performans Mühendisliği</span>
+                                <span class="project-status-badge">Yüksek Performans</span>
+                            </div>
+                            <h3 class="project-title">Ölçeklenebilir Web Uygulamaları & Teknik SEO Altyapısı</h3>
+                            <p class="project-description">
+                                Arama motorlarında en üst sıralarda organik görünürlük elde etmek amacıyla sıfırdan inşa edilmiş, milisaniyeler seviyesinde yanıt veren modern web platformu. Core Web Vitals ölçütlerini maksimize eden önbellek mekanizmaları, dinamik XML site haritaları, Schema.org semantik veri işaretlemeleri ve sıfır gecikmeli arayüz optimizasyonları uygulanmıştır.
+                            </p>
+
+                            <div class="project-detail-box">
+                                <h4 class="detail-box-title"><i class="fas fa-gauge-high"></i> Performans ve SEO Mühendisliği:</h4>
+                                <ul class="detail-bullet-list">
+                                    <li><strong>Core Web Vitals Zirvesi:</strong> 0.3 saniyelik FCP ve sıfır yerleşim kayması (CLS 0.00) ile Google PageSpeed denetimlerinde 100/100 tam puan.</li>
+                                    <li><strong>Semantik Schema.org Yapısı:</strong> Arama motoru örümceklerinin (crawler) içeriği eksiksiz anlamasını sağlayan JSON-LD veri hiyerarşisi.</li>
+                                    <li><strong>Ölçeklenebilir Arayüz Mimarisi:</strong> Mobil öncelikli, hafif kaynak tüketimi ve gelişmiş varlık (asset) sıkıştırma stratejisi.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-tech-pills">
+                                <span>Modern Web</span>
+                                <span>Teknik SEO</span>
+                                <span>Core Web Vitals</span>
+                                <span>Schema.org</span>
+                                <span>Performans Optimizasyonu</span>
+                                <span>Mobil Mimari</span>
+                            </div>
+                        </div>
+
+                        <div class="project-visual">
+                            <div class="lighthouse-mockup">
+                                <div class="lighthouse-header">
+                                    <i class="fas fa-shield-halved"></i> Google Lighthouse Kurumsal Denetim Raporu
+                                </div>
+                                <div class="lighthouse-scores">
+                                    <div class="score-circle">
+                                        <div class="circle-val">100</div>
+                                        <div class="circle-lbl">Performans</div>
+                                    </div>
+                                    <div class="score-circle">
+                                        <div class="circle-val">100</div>
+                                        <div class="circle-lbl">SEO</div>
+                                    </div>
+                                    <div class="score-circle">
+                                        <div class="circle-val">100</div>
+                                        <div class="circle-lbl">Erişilebilirlik</div>
+                                    </div>
+                                    <div class="score-circle">
+                                        <div class="circle-val">100</div>
+                                        <div class="circle-lbl">En İyi Pratikler</div>
+                                    </div>
+                                </div>
+                                <div class="lighthouse-metrics">
+                                    <div class="metric-row"><span>FCP (First Contentful Paint):</span><strong>0.3s</strong></div>
+                                    <div class="metric-row"><span>LCP (Largest Contentful Paint):</span><strong>0.5s</strong></div>
+                                    <div class="metric-row"><span>CLS (Cumulative Layout Shift):</span><strong>0.00</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proje 3: Veri Görselleştirme & Karar Destek Paneli -->
+                    <article class="project-card compact-project">
+                        <div class="compact-project-inner">
+                            <div class="project-meta-top">
+                                <span class="project-category">Veri Analitiği & İş Zekası</span>
+                                <span class="project-status-badge">Analitik Çözüm</span>
+                            </div>
+                            <h3 class="project-title">Veri Görselleştirme & Yönetici Karar Destek Paneli</h3>
+                            <p class="project-description">
+                                Karmaşık ve çok boyutlu kurumsal veri setlerinden stratejik içgörüler türetmek amacıyla geliştirilmiş interaktif karar destek sistemi. Dinamik filtreleme, çok değişkenli regresyon grafikleri ve yönetici düzeyinde KPI takibi sağlayan esnek veri görselleştirme mimarisi sunar.
+                            </p>
+                            <div class="project-detail-box" style="margin-top: 1rem;">
+                                <ul class="detail-bullet-list">
+                                    <li>Python Pandas ve R entegrasyonu ile istatistiksel veri modellemesi ve korelasyon matrisleri.</li>
+                                    <li>Yönetici düzeyinde hızlı özet panelleri ve dışa aktarılabilir analitik veri raporlama şablonları.</li>
+                                </ul>
+                            </div>
+                            <div class="project-tech-pills" style="margin-top: 1.25rem;">
+                                <span>Python</span>
+                                <span>R</span>
+                                <span>Pandas</span>
+                                <span>İstatistiksel Analiz</span>
+                                <span>Karar Destek Sistemleri</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             İNTERAKTİF LABORATUVAR (PLAYGROUND)
+             (Kurumsal kimliğe uygun, ziyaretçiyi oyalamaya yönelik)
+             ============================================== -->
+        <section id="playground" class="playground-section">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-subtitle">Etkileşim & Simülasyon</span>
+                    <h2 class="section-heading"><span class="heading-num">04.</span> İnteraktif Laboratuvar</h2>
+                    <p class="section-lead-desc">
+                        Geliştirici konsolunu deneyimleyebilir, veri yakalama simülasyonunda zaman geçirebilir veya K-Means yapay zeka kümeleme modelini canlı çalıştırabilirsiniz.
+                    </p>
+                    <div class="heading-bar"></div>
+                </div>
+
+                <!-- Sekmeler -->
+                <div class="playground-tab-buttons" role="tablist">
+                    <button type="button" class="tab-btn active" data-tab-target="terminal" role="tab" aria-selected="true">
+                        <i class="fas fa-terminal"></i>
+                        <span>Analitik Konsol</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab-target="game" role="tab" aria-selected="false">
+                        <i class="fas fa-gamepad"></i>
+                        <span>Veri Avcısı (Mini Oyun)</span>
+                    </button>
+                    <button type="button" class="tab-btn" data-tab-target="clustering" role="tab" aria-selected="false">
+                        <i class="fas fa-circle-nodes"></i>
+                        <span>Canlı AI Kümeleme Simülatörü</span>
+                    </button>
+                </div>
+
+                <div class="playground-tab-panels">
+                    <!-- ================= TAB 1: TERMİNAL ================= -->
+                    <div class="tab-panel active" id="tab-terminal" role="tabpanel">
+                        <div class="terminal-window">
+                            <div class="terminal-bar">
+                                <div class="terminal-controls">
+                                    <span class="term-dot close"></span>
+                                    <span class="term-dot min"></span>
+                                    <span class="term-dot max"></span>
+                                </div>
+                                <div class="terminal-title-text">deniz@altunay-corporate-lab: ~ (zsh)</div>
+                                <div class="terminal-quick-actions">
+                                    <button type="button" class="term-btn" id="clear-term-btn" title="Konsolu Temizle"><i class="fas fa-eraser"></i> Temizle</button>
+                                </div>
+                            </div>
+                            
+                            <div class="terminal-body" id="terminal-output" tabindex="0">
+                                <div class="term-line term-welcome">
+                                    ⚡ <strong>Deniz Altunay Kurumsal Analitik Konsolu</strong> (v2.6)
+                                </div>
+                                <div class="term-line term-muted">
+                                    Sistem parametrelerini sorgulamak için komut yazabilir veya hazır butonları kullanabilirsiniz.
+                                </div>
+                                <div class="term-line term-muted">
+                                    Komutlar: <span class="term-highlight">help</span>, <span class="term-highlight">about</span>, <span class="term-highlight">skills</span>, <span class="term-highlight">projects</span>, <span class="term-highlight">matrix</span>, <span class="term-highlight">coffee</span>, <span class="term-highlight">quote</span>, <span class="term-highlight">sudo hire</span>, <span class="term-highlight">clear</span>
+                                </div>
+                                <div class="term-divider"></div>
+                            </div>
+
+                            <!-- Hızlı Butonlar -->
+                            <div class="terminal-quick-pills">
+                                <span class="pill-label">Hızlı Komutlar:</span>
+                                <button type="button" class="quick-cmd-btn" data-cmd="skills">skills</button>
+                                <button type="button" class="quick-cmd-btn" data-cmd="projects">projects</button>
+                                <button type="button" class="quick-cmd-btn" data-cmd="matrix">matrix 🌧️</button>
+                                <button type="button" class="quick-cmd-btn" data-cmd="coffee">coffee ☕</button>
+                                <button type="button" class="quick-cmd-btn" data-cmd="quote">quote 💡</button>
+                                <button type="button" class="quick-cmd-btn" data-cmd="sudo hire">sudo hire 🚀</button>
+                            </div>
+
+                            <!-- Giriş Satırı -->
+                            <form class="terminal-input-row" id="terminal-form">
+                                <span class="term-prompt">deniz@terminal:~$</span>
+                                <input type="text" 
+                                       class="term-input" 
+                                       id="term-input-field" 
+                                       placeholder="'help' yazın veya butonlara tıklayın..." 
+                                       autocomplete="off" 
+                                       spellcheck="false">
+                                <button type="submit" class="term-submit-btn" aria-label="Komut Çalıştır">
+                                    <i class="fas fa-arrow-turn-down"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- ================= TAB 2: MINI GAME ================= -->
+                    <div class="tab-panel" id="tab-game" role="tabpanel">
+                        <div class="game-container">
+                            <div class="game-dashboard">
+                                <div class="game-stat-box">
+                                    <span class="stat-title">SKOR</span>
+                                    <span class="stat-val" id="game-score">0</span>
+                                </div>
+                                <div class="game-stat-box">
+                                    <span class="stat-title">EN YÜKSEK SKOR</span>
+                                    <span class="stat-val" id="game-high-score">0</span>
+                                </div>
+                                <div class="game-stat-box">
+                                    <span class="stat-title">CAN</span>
+                                    <div class="game-lives" id="game-lives">
+                                        <i class="fas fa-heart active"></i>
+                                        <i class="fas fa-heart active"></i>
+                                        <i class="fas fa-heart active"></i>
+                                    </div>
+                                </div>
+                                <div class="game-actions">
+                                    <button type="button" class="btn btn-sm btn-corporate" id="game-start-btn">
+                                        <i class="fas fa-play"></i> <span id="game-btn-text">Oyunu Başlat</span>
+                                    </button>
+                                    <button type="button" class="icon-toggle-btn" id="game-sound-btn" title="Ses Aç/Kapat">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Canvas -->
+                            <div class="game-canvas-wrapper">
+                                <canvas id="game-canvas" width="700" height="400"></canvas>
+                                <div class="game-overlay" id="game-overlay">
+                                    <div class="overlay-content">
+                                        <h3 class="overlay-title">Veri Avcısı (Data Catcher)</h3>
+                                        <p class="overlay-desc">
+                                            Mavi <strong>Temiz Verileri (+10)</strong> ve Cyan <strong>AI Çiplerini (+25)</strong> toplayın.<br>
+                                            Kırmızı <strong>Hata Paketlerinden (-1 Can)</strong> kaçının!
+                                        </p>
+                                        <div class="controls-hint">
+                                            <span><i class="fas fa-keyboard"></i> <strong>A-D</strong> veya <strong>Sol/Sağ Ok</strong> Tuşları</span>
+                                            <span><i class="fas fa-hand-pointer"></i> Dokunmatik Ekran / Fareyle Çubuğu Kaydırın</span>
+                                        </div>
+                                        <button type="button" class="btn btn-primary" id="overlay-play-btn">
+                                            <span>Hemen Başla</span>
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= TAB 3: CLUSTERING SIMULATOR ================= -->
+                    <div class="tab-panel" id="tab-clustering" role="tabpanel">
+                        <div class="cluster-sim-layout">
+                            <div class="cluster-controls-card">
+                                <h3 class="cluster-title"><i class="fas fa-sliders"></i> Algoritma Parametreleri</h3>
+                                <p class="cluster-desc">
+                                    K-Means yapay zeka algoritmasının rastgele dağılmış verileri merkez noktalarına (Centroids) göre adım adım nasıl sınıflandırdığını canlı izleyin.
+                                </p>
+
+                                <div class="control-group">
+                                    <div class="control-label-wrap">
+                                        <label for="cluster-count">Küme Sayısı (K):</label>
+                                        <span class="control-val-badge" id="k-val-display">3</span>
+                                    </div>
+                                    <input type="range" id="cluster-count" min="2" max="6" value="3" class="slider-input">
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label-wrap">
+                                        <label for="point-count">Veri Noktası Sayısı:</label>
+                                        <span class="control-val-badge" id="points-val-display">80</span>
+                                    </div>
+                                    <input type="range" id="point-count" min="30" max="150" value="80" step="10" class="slider-input">
+                                </div>
+
+                                <div class="control-btn-group">
+                                    <button type="button" class="btn btn-primary full-width" id="run-cluster-btn">
+                                        <i class="fas fa-play"></i>
+                                        <span>Modeli Eğit (K-Means)</span>
+                                    </button>
+                                    <button type="button" class="btn btn-secondary full-width" id="reset-cluster-btn">
+                                        <i class="fas fa-rotate-right"></i>
+                                        <span>Yeni Veri Üret</span>
+                                    </button>
+                                </div>
+
+                                <div class="cluster-status-box">
+                                    <span class="status-label">Durum:</span>
+                                    <span class="status-val" id="cluster-status-text">Hazır. Yeni veri üretin veya modeli eğitin.</span>
+                                </div>
+                            </div>
+
+                            <div class="cluster-canvas-wrap">
+                                <canvas id="cluster-canvas" width="600" height="420"></canvas>
+                                <div class="cluster-legend">
+                                    <span class="legend-item"><span class="legend-dot centroid"></span> Merkez Noktalar (Centroids)</span>
+                                    <span class="legend-item"><span class="legend-dot points"></span> Veri Noktaları</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             İLETİŞİM BÖLÜMÜ (CONTACT)
+             (Form kaldırıldı, sadece güncel, şık, kurumsal
+             iletişim bilgileri ve doğrudan bağlantılar yer alır)
+             ============================================== -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-title-wrap text-center">
+                    <span class="section-subtitle">Bağlantıda Kalalım</span>
+                    <h2 class="section-heading"><span class="heading-num">05.</span> İletişim Bilgileri</h2>
+                    <p class="section-lead-desc max-600">
+                        Yapay zeka, veri analitiği veya yazılım geliştirme projeleriniz için benimle doğrudan aşağıdaki profesyonel kanallardan iletişime geçebilirsiniz.
+                    </p>
+                    <div class="heading-bar center-bar"></div>
+                </div>
+
+                <!-- Kurumsal İletişim Bilgi Izgarası -->
+                <div class="corporate-contact-container">
+                    <div class="corporate-contact-grid">
+                        <!-- E-posta Kartı -->
+                        <div class="contact-card highlight-card">
+                            <div class="contact-icon"><i class="fas fa-envelope-open-text"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label">Kurumsal & Şahsi E-posta</span>
+                                <a href="mailto:altnydeniz@gmail.com" class="contact-link">altnydeniz@gmail.com</a>
+                            </div>
+                            <button type="button" class="copy-pill-btn" data-email="altnydeniz@gmail.com" title="E-postayı Kopyala">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <!-- LinkedIn Kartı -->
+                        <a href="https://linkedin.com/in/deniz-altunay-424666388/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label">LinkedIn Profesyonel Ağı</span>
+                                <span class="contact-link">linkedin.com/in/deniz-altunay</span>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square ext-icon"></i>
+                        </a>
+
+                        <!-- GitHub Kartı -->
+                        <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-github"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label">GitHub Kod Deposu</span>
+                                <span class="contact-link">github.com/denisjpeg</span>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square ext-icon"></i>
+                        </a>
+
+                        <!-- Instagram Kartı -->
+                        <a href="https://instagram.com/denizaltny" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label">Instagram Sosyal Bağlantısı</span>
+                                <span class="contact-link">@denizaltny</span>
+                            </div>
+                            <i class="fas fa-arrow-up-right-from-square ext-icon"></i>
+                        </a>
+
+                        <!-- Konum Kartı -->
+                        <div class="contact-card full-span-card">
+                            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+                            <div class="contact-details">
+                                <span class="contact-label">Lokasyon & Çalışma Modeli</span>
+                                <span class="contact-static-text">İstanbul, Türkiye & Uzaktan (Remote / Hybrid)</span>
+                            </div>
+                            <span class="status-pill"><span class="status-pulse-dot"></span> Aktif Müsaitlik</span>
+                        </div>
+                    </div>
+
+                    <!-- Doğrudan Hızlı E-posta Gönderme Aksiyon Kutusu -->
+                    <div class="direct-email-box">
+                        <div class="email-box-text">
+                            <h4>Hemen Görüşme Başlatın</h4>
+                            <p>Projenizi veya iş birliği teklifinizi doğrudan e-posta ile iletebilirsiniz.</p>
+                        </div>
+                        <div class="email-box-actions">
+                            <a href="mailto:altnydeniz@gmail.com" class="btn btn-primary email-action-btn">
+                                <i class="fas fa-envelope"></i>
+                                <span>E-posta Uygulamasında Aç</span>
+                            </a>
+                            <button type="button" class="btn btn-secondary email-action-btn" id="direct-copy-btn" data-email="altnydeniz@gmail.com">
+                                <i class="far fa-copy"></i>
+                                <span>E-posta Adresini Kopyala</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Kurumsal Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="footer-logo-title">Deniz Altunay</span>
+                    <p class="footer-copy">
+                        Veri bilimi ve kurumsal yazılım mühendisliği odaklı kişisel portfolyo.<br>
+                        © <span id="current-year">2026</span> Tüm hakları saklıdır.
+                    </p>
+                </div>
+
+                <div class="footer-social-row">
+                    <a href="https://linkedin.com/in/deniz-altunay-424666388/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/denisjpeg" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/denizaltny" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:altnydeniz@gmail.com" aria-label="E-posta" title="E-posta"><i class="fas fa-envelope"></i></a>
+                </div>
+
+                <div class="footer-top-btn-wrap">
+                    <a href="#home" class="scroll-top-btn" aria-label="Sayfanın Başına Dön">
+                        <i class="fas fa-chevron-up"></i>
+                        <span>Başa Dön</span>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript Dosyası -->
     <script src="script.js" defer></script>
 </body>
 </html>
